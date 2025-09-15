@@ -1,0 +1,56 @@
+<!-- <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title or 'Mini Search' }}</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <a href="/" class="brand">Mini Search</a>
+    <form action="/search" method="get" class="top-search">
+      <input type="text" name="q" value="{{ request.args.get('q','') }}" placeholder="Search…" />
+      <button type="submit">Search</button>
+    </form>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <small>Built with Flask + SQLite FTS5</small>
+  </footer>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}FOMO Search Engine{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><a href="/">🔍 FOMO Search</a></h1>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/stats">Stats</a>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FOMO Search Engine - Built with Flask</p>
+        </div>
+    </footer>
+</body>
+</html>

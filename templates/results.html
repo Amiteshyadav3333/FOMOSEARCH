@@ -1,0 +1,112 @@
+<!-- {% extends 'base.html' %}
+{% block content %}
+<h2>Results for: <em>{{ q }}</em></h2>
+<p class="count">{{ count }} result{{ '' if count == 1 else 's' }}</p>
+<ul class="results">
+  {% for r in results %}
+  <li class="result">
+    <a href="{{ r.url }}" target="_blank" class="title">{{ r.title or r.url }}</a>
+    <div class="url">{{ r.url }}</div>
+    <p class="snippet">{{ r.snippet|safe }}</p>
+  </li>
+  {% else %}
+  <li>No results. Try another query or crawl more pages.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results for "{{ query }}"</title>
+</head>
+<body>
+    <h1>Results for "{{ query }}"</h1>
+    {% if results %}
+        <ul>
+        {% for url, content in results %}
+            <li>
+                <a href="{{ url }}" target="_blank">{{ url }}</a><br>
+                {{ content[:300] }}...
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+    <a href="/">Back to search</a>
+</body>
+</html> -->
+
+
+{% extends "base.html" %}
+
+{% block title %}Results for: {{ q }} - FOMO Search{% endblock %}
+
+{% block content %}
+<div class="search-results">
+    <!-- Search box at top -->
+    <div class="search-header">
+        <form action="/search" method="GET" class="search-form">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    name="q" 
+                    value="{{ q }}" 
+                    placeholder="Search..."
+                    autocomplete="off"
+                >
+                <button type="submit">🔍</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Results info -->
+    <div class="results-info">
+        {% if q %}
+            <h2>Results for: <em>{{ q }}</em></h2>
+            <p>{{ count }} result{{ 's' if count != 1 else '' }} found</p>
+        {% endif %}
+        
+        {% if error %}
+            <div class="error-message">
+                <p>❌ Search error: {{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Results list -->
+    <div class="results-list">
+        {% if results %}
+            {% for result in results %}
+            <div class="result-item">
+                <h3><a href="{{ result.url }}" target="_blank">{{ result.title or 'Untitled' }}</a></h3>
+                <div class="result-url">{{ result.url }}</div>
+                {% if result.snippet %}
+                    <div class="result-snippet">{{ result.snippet|safe }}</div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        {% elif count == 0 and q %}
+            <div class="no-results">
+                <p>🔍 No results found for "<strong>{{ q }}</strong>"</p>
+                <div class="suggestions">
+                    <p>Try:</p>
+                    <ul>
+                        <li>Different keywords</li>
+                        <li>More general terms</li>
+                        <li>Check spelling</li>
+                        <li><a href="/stats">Check database stats</a> to see available content</li>
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+
+    {% if results and count >= 50 %}
+    <div class="results-footer">
+        <p>⚠️ Showing first 50 results. Try more specific keywords for better results.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

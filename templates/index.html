@@ -1,0 +1,59 @@
+<!-- % extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <h1>Search your mini index</h1>
+  <form action="/search" method="get" class="hero-search">
+    <input type="text" name="q" placeholder="Type a query, e.g. privacy policy" required />
+    <button type="submit">Search</button>
+  </form>
+</section>
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FomoSearch</title>
+</head>
+<body>
+    <h1>FomoSearch Engine</h1>
+    <form action="/search">
+        <input type="text" name="q" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html> -->
+
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="search-home">
+    <div class="search-container">
+        <h2>Search the Web</h2>
+        <form action="/search" method="GET" class="search-form">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    name="q" 
+                    placeholder="Enter your search query..." 
+                    autofocus
+                    autocomplete="off"
+                >
+                <button type="submit">🔍 Search</button>
+            </div>
+        </form>
+        
+        <div class="suggestions">
+            <p>Try searching for:</p>
+            <div class="suggestion-tags">
+                <a href="/search?q=Flask">Flask</a>
+                <a href="/search?q=Python">Python</a>
+                <a href="/search?q=tutorial">Tutorial</a>
+                <a href="/search?q=web development">Web Development</a>
+                <a href="/search?q=programming">Programming</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
