@@ -42,53 +42,121 @@ class MassiveCrawler:
     def get_seed_urls(self):
         """Get massive list of seed URLs to start crawling"""
         return [
-            # Tech & Programming
-            "https://stackoverflow.com/",
-            "https://github.com/",
-            "https://medium.com/",
-            "https://dev.to/",
-            "https://hackernoon.com/",
-            "https://docs.python.org/",
-            "https://flask.palletsprojects.com/",
-            "https://reactjs.org/",
-            "https://nodejs.org/",
-            "https://developer.mozilla.org/",
+            # Major Tech Companies & Platforms
+            "https://stackoverflow.com/", "https://github.com/", "https://medium.com/",
+            "https://dev.to/", "https://hackernoon.com/", "https://techcrunch.com/",
+            "https://arstechnica.com/", "https://wired.com/", "https://theverge.com/",
+            "https://engadget.com/", "https://gizmodo.com/", "https://mashable.com/",
             
-            # News & Information
-            "https://news.ycombinator.com/",
-            "https://reddit.com/r/programming/",
-            "https://reddit.com/r/technology/",
-            "https://techcrunch.com/",
-            "https://arstechnica.com/",
+            # Programming & Development
+            "https://docs.python.org/", "https://flask.palletsprojects.com/",
+            "https://reactjs.org/", "https://nodejs.org/", "https://developer.mozilla.org/",
+            "https://docs.djangoproject.com/", "https://laravel.com/docs/",
+            "https://vuejs.org/", "https://angular.io/", "https://svelte.dev/",
+            "https://nextjs.org/", "https://nuxtjs.org/", "https://expressjs.com/",
+            "https://fastapi.tiangolo.com/", "https://spring.io/", "https://rubyonrails.org/",
             
-            # Educational
-            "https://www.khanacademy.org/",
-            "https://www.coursera.org/",
-            "https://www.udemy.com/",
-            "https://www.freecodecamp.org/",
+            # Educational Platforms
+            "https://www.khanacademy.org/", "https://www.coursera.org/",
+            "https://www.udemy.com/", "https://www.freecodecamp.org/",
+            "https://www.codecademy.com/", "https://www.edx.org/",
+            "https://www.pluralsight.com/", "https://www.lynda.com/",
+            "https://www.skillshare.com/", "https://www.udacity.com/",
+            
+            # News & Media
+            "https://news.ycombinator.com/", "https://reddit.com/r/programming/",
+            "https://reddit.com/r/technology/", "https://reddit.com/r/webdev/",
+            "https://reddit.com/r/MachineLearning/", "https://reddit.com/r/datascience/",
+            "https://www.bbc.com/", "https://www.cnn.com/", "https://www.reuters.com/",
+            "https://www.bloomberg.com/", "https://www.wsj.com/", "https://www.nytimes.com/",
             
             # Wikis & Reference
-            "https://en.wikipedia.org/",
-            "https://stackoverflow.com/",
-            "https://superuser.com/",
-            "https://serverfault.com/",
+            "https://en.wikipedia.org/", "https://stackoverflow.com/",
+            "https://superuser.com/", "https://serverfault.com/",
+            "https://askubuntu.com/", "https://unix.stackexchange.com/",
+            "https://mathoverflow.net/", "https://physics.stackexchange.com/",
             
             # Blogs & Tutorials
-            "https://realpython.com/",
-            "https://css-tricks.com/",
-            "https://smashingmagazine.com/",
-            "https://alistapart.com/",
+            "https://realpython.com/", "https://css-tricks.com/",
+            "https://smashingmagazine.com/", "https://alistapart.com/",
+            "https://www.digitalocean.com/community/", "https://www.atlassian.com/blog/",
+            "https://blog.google/", "https://engineering.fb.com/",
+            "https://netflixtechblog.com/", "https://eng.uber.com/",
             
-            # Documentation sites
-            "https://docs.djangoproject.com/",
-            "https://laravel.com/docs/",
-            "https://vuejs.org/",
-            "https://angular.io/",
+            # Cloud & DevOps
+            "https://aws.amazon.com/", "https://cloud.google.com/",
+            "https://azure.microsoft.com/", "https://www.digitalocean.com/",
+            "https://www.heroku.com/", "https://www.netlify.com/",
+            "https://vercel.com/", "https://kubernetes.io/", "https://docker.com/",
+            
+            # AI & Machine Learning
+            "https://www.tensorflow.org/", "https://pytorch.org/",
+            "https://scikit-learn.org/", "https://www.kaggle.com/",
+            "https://huggingface.co/", "https://openai.com/",
+            "https://deepmind.com/", "https://ai.google/",
+            
+            # Design & UX
+            "https://dribbble.com/", "https://behance.net/",
+            "https://www.figma.com/", "https://www.sketch.com/",
+            "https://www.adobe.com/", "https://www.canva.com/",
             
             # Forums & Communities
-            "https://discourse.org/",
-            "https://lobste.rs/",
-            "https://www.indiehackers.com/"
+            "https://discourse.org/", "https://lobste.rs/",
+            "https://www.indiehackers.com/", "https://news.ycombinator.com/",
+            "https://www.producthunt.com/", "https://hashnode.com/",
+            
+            # Government & Organizations
+            "https://www.w3.org/", "https://www.ietf.org/",
+            "https://www.mozilla.org/", "https://www.apache.org/",
+            "https://www.gnu.org/", "https://www.fsf.org/",
+            
+            # Popular Websites for General Content
+            "https://www.imdb.com/", "https://www.goodreads.com/",
+            "https://www.tripadvisor.com/", "https://www.yelp.com/",
+            "https://www.amazon.com/", "https://www.ebay.com/",
+            "https://www.etsy.com/", "https://www.shopify.com/",
+            
+            # Indian Websites
+            "https://www.flipkart.com/", "https://www.myntra.com/",
+            "https://www.zomato.com/", "https://www.swiggy.com/",
+            "https://www.paytm.com/", "https://www.phonepe.com/",
+            "https://www.makemytrip.com/", "https://www.bookmyshow.com/",
+            
+            # Entertainment & Lifestyle
+            "https://www.spotify.com/", "https://www.netflix.com/",
+            "https://www.hulu.com/", "https://www.twitch.tv/",
+            "https://www.reddit.com/", "https://www.quora.com/",
+            
+            # Health & Fitness
+            "https://www.webmd.com/", "https://www.mayoclinic.org/",
+            "https://www.healthline.com/", "https://www.medicalnewstoday.com/",
+            
+            # Finance & Business
+            "https://www.investopedia.com/", "https://www.fool.com/",
+            "https://www.marketwatch.com/", "https://finance.yahoo.com/",
+            "https://www.entrepreneur.com/", "https://www.inc.com/",
+            
+            # Travel & Geography
+            "https://www.lonelyplanet.com/", "https://www.nationalgeographic.com/",
+            "https://www.atlasobscura.com/", "https://www.timeout.com/",
+            
+            # Science & Research
+            "https://www.nature.com/", "https://www.science.org/",
+            "https://www.scientificamerican.com/", "https://www.newscientist.com/",
+            "https://arxiv.org/", "https://scholar.google.com/",
+            
+            # Sports
+            "https://www.espn.com/", "https://www.bbc.com/sport/",
+            "https://www.si.com/", "https://www.goal.com/",
+            
+            # Gaming
+            "https://www.ign.com/", "https://www.gamespot.com/",
+            "https://www.polygon.com/", "https://www.kotaku.com/",
+            
+            # More Programming Resources
+            "https://www.geeksforgeeks.org/", "https://www.tutorialspoint.com/",
+            "https://www.w3schools.com/", "https://www.javatpoint.com/",
+            "https://www.programiz.com/", "https://www.codecademy.com/"
         ]
 
     def check_robots_txt(self, url):

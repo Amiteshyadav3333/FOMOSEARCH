@@ -1,24 +1,6 @@
-# # utils_text.py
-# from bs4 import BeautifulSoup
-# import re
-
-# def html_to_text(html: str) -> str:
-#     soup = BeautifulSoup(html, 'html.parser')
-
-#     # Remove script/style
-#     for tag in soup(['script', 'style', 'noscript']):
-#         tag.decompose()
-
-#     text = soup.get_text('\n')
-#     # Normalize whitespace
-#     text = re.sub(r'\s+', ' ', text).strip()
-#     return text
-
-
 import re
 import html
 from bs4 import BeautifulSoup
-import html2text
 
 def clean_html(html_content):
     """Convert HTML to clean, readable text."""
@@ -26,24 +8,11 @@ def clean_html(html_content):
         return ""
     
     try:
-        # Use html2text for better conversion
-        h = html2text.HTML2Text()
-        h.ignore_links = True
-        h.ignore_images = True
-        h.ignore_tables = False
-        h.body_width = 0  # Don't wrap lines
-        
-        text = h.handle(html_content)
-        
-        # Clean up the text
-        text = clean_text(text)
-        
-        return text
-        
-    except Exception as e:
-        print(f"Error in html2text conversion: {e}")
-        # Fallback to BeautifulSoup
+        # Use BeautifulSoup for HTML cleaning
         return clean_html_bs4(html_content)
+    except Exception as e:
+        print(f"Error in BeautifulSoup conversion: {e}")
+        return clean_text_basic(html_content)
 
 def clean_html_bs4(html_content):
     """Fallback HTML cleaning with BeautifulSoup."""
